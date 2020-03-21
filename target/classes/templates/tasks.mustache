@@ -12,12 +12,14 @@
         <input type="text" name="text" placeholder="Текст поручения" />
         <input type="text" name="subject" placeholder="Предмет поручения">
         <button type="submit">Создать поручение</button>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
     </form>
 </div>
 <div>
 <form method="post" action="filter">
     <input type="text" name="filter">
     <button type="submit">Найти по предмету</button>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
 </form>
 </div>
 {{#tasks}}
