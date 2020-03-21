@@ -5,6 +5,20 @@
     <title>Поручения</title>
 </head>
 <body>
-<div>Welcome to {{some}}</div>
+<div>СПИСОК ПОРУЧЕНИЙ</div>
+<div>
+    <form method="post">
+        <input type="text" name="text" placeholder="Текст поручения" />
+        <input type="text" name="subject" placeholder="Предмет поручения">
+        <button type="submit">Создать поручение</button>
+    </form>
+</div>
+{{#tasks}}
+<div>
+    <b>{{id}}</b>
+    <span>{{text}}</span>
+    <i>{{subject}}</i>
+</div>
+{{/tasks}}
 </body>
 </html>
