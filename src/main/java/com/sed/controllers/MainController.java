@@ -1,4 +1,4 @@
-package com.sed;
+package com.sed.controllers;
 
 import com.sed.domain.Task;
 import com.sed.repos.TaskRepo;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
     @Autowired
     private TaskRepo taskRepo;
 
