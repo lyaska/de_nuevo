@@ -1,8 +1,10 @@
 package com.sed.controllers;
 
 import com.sed.domain.Task;
+import com.sed.domain.User;
 import com.sed.repos.TaskRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,8 +37,12 @@ public class MainController {
     }
 
     @PostMapping("/tasks")
-    public String addTask(@RequestParam String text, @RequestParam String subject, Map<String, Object> model){
-        Task task = new Task(text, subject);
+    public String addTask(
+            @AuthenticationPrincipal User user,
+            @RequestParam String text,
+            @RequestParam String subject,
+            Map<String, Object> model){
+        Task task = new Task(text, subject, user);
         taskRepo.save(task);
         Iterable<Task> tasks = taskRepo.findAll();
         model.put("tasks", tasks);

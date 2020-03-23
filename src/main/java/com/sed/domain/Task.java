@@ -1,9 +1,6 @@
 package com.sed.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Task {
@@ -13,13 +10,21 @@ public class Task {
 
     private String text;
     private String subject;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
 
     public Task() {
     }
 
-    public Task(String text, String subject) {
+    public Task(String text, String subject, User user) {
         this.text = text;
         this.subject = subject;
+        this.author = user;
+    }
+
+    public String getAuthorName(){
+        return author != null ? author.getUsername() : "<none>";
     }
 
     public Integer getId() {
@@ -44,5 +49,13 @@ public class Task {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }
