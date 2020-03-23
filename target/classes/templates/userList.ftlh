@@ -1,13 +1,13 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-    List of users
+    Список сотрудников
 
     <table>
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Role</th>
+            <th>Имя пользователя</th>
+            <th>Право доступа</th>
             <th></th>
         </tr>
         </thead>
@@ -21,4 +21,5 @@
         </#list>
         </tbody>
     </table>
+    <a href="/main">На главную</a>
 </@c.page>

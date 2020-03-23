@@ -1,7 +1,7 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-<div>Welcome to ${some} </div>
+
     <div><a href="/user">Сотрудники</a></div>
     <div><span><a href="/main">На главную</a></span></div>
 
