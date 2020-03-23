@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Поручения</title>
-</head>
-<body>
+<#import "parts/common.ftlh" as c>
+
+<@c.page>
+
 <div>СПИСОК ПОРУЧЕНИЙ</div>
 
 <div>
@@ -12,23 +9,25 @@
         <input type="text" name="text" placeholder="Текст поручения" />
         <input type="text" name="subject" placeholder="Предмет поручения">
         <button type="submit">Создать поручение</button>
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
     </form>
 </div>
 <div>
 <form method="post" action="filter">
     <input type="text" name="filter">
     <button type="submit">Найти по предмету</button>
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
 </form>
 </div>
-{{#tasks}}
-<div>
-    <b>{{id}}</b>
-    <span>{{text}}</span>
-    <i>{{subject}}</i>
-    <strong>{{authorName}}</strong>
-</div>
-{{/tasks}}
-</body>
-</html>
+<#list tasks as task>
+    <div>
+        <b>${task.id}</b>
+        <span>${task.text}</span>
+        <i>${task.subject}</i>
+        <strong>${task.authorName}</strong>
+    </div>
+    <#else>
+    Нет доступных поручений
+</#list>
+
+</@c.page>
