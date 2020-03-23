@@ -2,7 +2,7 @@
 <#import "parts/login.ftlh" as l>
 <@c.page>
 <form action="/organisation">
-    <button>ОРГАНИЗАЦИЯ</button>
+    <button>СПРАВОЧНИК ОРГАНИЗАЦИИ</button>
     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
 </form>
 
