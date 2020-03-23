@@ -14,7 +14,7 @@
 </div>
 <div>
 <form method="get" action="/tasks">
-    <input type="text" name="filter" value="${filter}">
+    <input type="text" name="filter" value="${filter!""}">
     <button type="submit">Найти по предмету</button>
 </form>
 </div>
