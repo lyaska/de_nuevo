@@ -30,9 +30,16 @@ public class MainController {
     }
 
     @GetMapping("/tasks")
-    public String tasks(Map<String, Object> model){
+    public String tasks(@RequestParam(required = false, defaultValue = "") String filter, Model model){
         Iterable<Task> tasks = taskRepo.findAll();
-        model.put("tasks", tasks);
+        if(filter!=null && !filter.isEmpty()){
+            tasks = taskRepo.findBySubject(filter);
+        }
+        else{
+            tasks = taskRepo.findAll();
+        }
+        model.addAttribute("tasks", tasks);
+        model.addAttribute("filter", filter);
         return "tasks";
     }
 
@@ -48,18 +55,7 @@ public class MainController {
         model.put("tasks", tasks);
         return "tasks";
     }
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter, Map<String, Object> model){
-        Iterable<Task> tasks;
-        if(filter!=null && !filter.isEmpty()){
-            tasks = taskRepo.findBySubject(filter);
-        }
-        else{
-            tasks = taskRepo.findAll();
-        }
-        model.put("tasks", tasks);
-        return "tasks";
-    }
+
 
     @GetMapping("/organisation")
     public String organisation(Map<String, Object> model){

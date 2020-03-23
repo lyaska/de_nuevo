@@ -13,10 +13,9 @@
     </form>
 </div>
 <div>
-<form method="post" action="filter">
-    <input type="text" name="filter">
+<form method="get" action="/tasks">
+    <input type="text" name="filter" value="${filter}">
     <button type="submit">Найти по предмету</button>
-    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
 </form>
 </div>
 <#list tasks as task>
