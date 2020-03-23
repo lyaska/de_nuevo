@@ -28,5 +28,7 @@
     <#else>
     Нет доступных поручений
 </#list>
-
+<div>
+    <span><a href="/main">На главную</a></span>
+</div>
 </@c.page>
