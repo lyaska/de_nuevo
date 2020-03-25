@@ -1,34 +1,48 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-
-<div>СПИСОК ПОРУЧЕНИЙ</div>
-
-<div>
-    <form method="post">
-        <input type="text" name="text" placeholder="Текст поручения" />
-        <input type="text" name="subject" placeholder="Предмет поручения">
-        <button type="submit">Создать поручение</button>
-        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-    </form>
-</div>
-<div>
-<form method="get" action="/tasks">
-    <input type="text" name="filter" value="${filter?ifExists}">
-    <button type="submit">Найти по предмету</button>
-</form>
-</div>
-<#list tasks as task>
-    <div>
-        <b>${task.id}</b>
-        <span>${task.text}</span>
-        <i>${task.subject}</i>
-        <strong>${task.authorName}</strong>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <form method="get" action="/tasks" class="form-inline">
+                <input type="text" name="filter" class="form-control" value="${filter?ifExists}" placeholder="Найти по предмету">
+                <button type="submit" class="btn btn-primary ml-2">Найти по предмету</button>
+            </form>
+        </div>
     </div>
-    <#else>
-    Нет доступных поручений
-</#list>
-<div>
-    <span><a href="/main">На главную</a></span>
-</div>
+
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Создать новое поручение
+    </a>
+    <div class="collapse" id="collapseExample">
+        <div class="form-group mt-3">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="text" placeholder="Введите текст" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="subject" placeholder="Предмет">
+                </div>
+                <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Создать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card-columns">
+        <#list tasks as task>
+            <div class="card my-3">
+                <div class="m-2">
+                    <span>${task.text}</span>
+                    <i>${task.subject}</i>
+                </div>
+                <div class="card-footer text-muted">
+                    ${task.authorName}
+                </div>
+            </div>
+        <#else>
+            Нет доступных поручений
+        </#list>
+    </div>
 </@c.page>
