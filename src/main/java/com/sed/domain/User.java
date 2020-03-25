@@ -22,6 +22,55 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    private String firstName;
+    private String secondName;
+    private String patronymic;
+    private String position;
+
+    public String getPatronymic() {
+        if (patronymic == null){
+            return "<none>";
+        }
+        else return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public String getFirstName() {
+        if(firstName == null){
+            return "<none>";
+        }
+        else return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+       if(secondName == null){
+           return "<none>";
+       }
+       else return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public String getPosition() {
+        if(position == null){
+            return "<none>";
+        }
+        else return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
     public Long getId() {
         return id;
     }

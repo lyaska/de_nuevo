@@ -5,6 +5,10 @@
 
     <form action="/user" method="post">
         <input type="text" name="username" value="${user.username}">
+        <input type="text" name="firstName" value="${user.firstName}">
+        <input type="text" name="secondName" value="${user.secondName}">
+        <input type="text" name="patronymic" value="${user.patronymic}">
+        <input type="text" name="position" value="${user.position}">
         <#list roles as role>
             <div>
                 <label><input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>${role}</label>

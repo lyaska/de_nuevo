@@ -6,7 +6,11 @@
     <table>
         <thead>
         <tr>
-            <th>Имя пользователя</th>
+            <th>Логин</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Должность</th>
             <th>Право доступа</th>
             <th></th>
         </tr>
@@ -15,6 +19,10 @@
         <#list users as user>
             <tr>
                 <td>${user.username}</td>
+                <td>${user.firstName}</td>
+                <td>${user.secondName}</td>
+                <td>${user.patronymic}</td>
+                <td>${user.position}</td>
                 <td><#list user.roles as role>${role}<#sep>, </#list></td>
                 <td><a href="/user/${user.id}">edit</a></td>
                 <td><a href="/userDelete/${user.id}">delete</a></td>
