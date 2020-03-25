@@ -2,6 +2,7 @@
 
 <@c.page>
 
-    <div><span><a href="/main">На главную</a></span></div>
+    <div><a href="/org">Об организации</a></div>
+    <div><a href="/divs">Подразделения</a> </div>
 
 </@c.page>

@@ -5,7 +5,7 @@
         <div class="form-group col-md-6">
             <form method="get" action="/tasks" class="form-inline">
                 <input type="text" name="filter" class="form-control" value="${filter?ifExists}" placeholder="Найти по предмету">
-                <button type="submit" class="btn btn-primary ml-2">Найти по предмету</button>
+                <button type="submit" class="btn btn-primary ml-2">Найти</button>
             </form>
         </div>
     </div>

@@ -30,5 +30,5 @@
         </#list>
         </tbody>
     </table>
-    <a href="/main">На главную</a>
+
 </@c.page>
