@@ -1,3 +1,4 @@
+<#include "security.ftlh">
 <div class="card-columns">
     <#list tasks as task>
         <div class="card my-3">
@@ -7,10 +8,14 @@
                 <p>Срок исполнения: ${task.term}</p>
             </div>
             <div class="card-footer text-muted">
-                Автор: ${task.authorName}
+                Автор: <a href ="/user-tasks/${task.author.id}">${task.authorName}</a>
+                <#if task.author.id == currentUserId>
+                <a class="btn btn-primary" href="/user-tasks/${task.author.id}?task=${task.id}">Редактировать
+                    </a></#if>
             </div>
             <div class="card-footer text-muted">
                 Исполнитель: ${task.executor}
+
             </div>
         </div>
     <#else>

@@ -1,8 +1,10 @@
 package com.sed.controllers;
 
+
 import com.sed.domain.Task;
 import com.sed.domain.User;
 import com.sed.repos.TaskRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -57,7 +59,7 @@ public class MainController {
         taskRepo.save(task);
         Iterable<Task> tasks = taskRepo.findAll();
         model.put("tasks", tasks);
-        return "tasks";
+        return "redirect:/tasks/";
     }
 
 
@@ -71,11 +73,33 @@ public class MainController {
     public String userTasks(
             @AuthenticationPrincipal User currentUser,
             @PathVariable User user,
+            @RequestParam(required = false) Task task,
             Model model){
         Set<Task> tasks = user.getTasks();
         model.addAttribute("tasks", tasks);
+        model.addAttribute("task", task);
         model.addAttribute("isCurrentUser", currentUser.equals(user));
         return "user-tasks";
+    }
+
+    @PostMapping("/user-tasks/{user}")
+    public String updateTask(
+            @AuthenticationPrincipal User currentUser,
+            @PathVariable Long user,
+            @RequestParam("id") Task task,
+            @RequestParam("text") String text,
+            @RequestParam("subject") String subject,
+            @RequestParam("executor") String executor,
+            @RequestParam("term") String term
+    ){
+        if(task.getAuthor().equals(currentUser)){
+            task.setText(text);
+            task.setSubject(subject);
+            task.setExecutor(executor);
+            task.setTerm(term);
+            taskRepo.save(task);
+        }
+        return "redirect:/user-tasks/" + user;
     }
 
 
