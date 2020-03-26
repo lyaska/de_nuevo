@@ -14,8 +14,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/tasks">Поручения</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/organisation">Справочник организации</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/organisation" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Справочник организации
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/structure">Оргструктура</a>
+                    <a class="dropdown-item" href="/user">Сотрудники</a>
+                </div>
             </li>
         </ul>
         <div class="navbar-text mr-3">${name}</div>

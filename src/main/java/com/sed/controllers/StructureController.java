@@ -37,4 +37,10 @@ public class StructureController {
         model.addAttribute("divs", divs);
         return "divs";
     }
+
+    @GetMapping("/org")
+    public String org(Map<String, Object> model){
+        return "org";
+    }
+
 }

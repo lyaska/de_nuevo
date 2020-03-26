@@ -48,8 +48,10 @@ public class MainController {
             @AuthenticationPrincipal User user,
             @RequestParam String text,
             @RequestParam String subject,
+            @RequestParam String executor,
+            @RequestParam String term,
             Map<String, Object> model){
-        Task task = new Task(text, subject, user);
+        Task task = new Task(text, subject, user, executor, term);
         taskRepo.save(task);
         Iterable<Task> tasks = taskRepo.findAll();
         model.put("tasks", tasks);

@@ -13,8 +13,18 @@ public class Task {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User author;
+    private String executor;
+    private String term;
 
     public Task() {
+    }
+
+    public Task(String text, String subject, User author, String executor, String term) {
+        this.text = text;
+        this.subject = subject;
+        this.author = author;
+        this.executor = executor;
+        this.term = term;
     }
 
     public Task(String text, String subject, User user) {
@@ -24,7 +34,7 @@ public class Task {
     }
 
     public String getAuthorName(){
-        return author != null ? author.getUsername() : "<none>";
+        return author != null ? author.getFirstName()+" "+ author.getSecondName() : "<none>";
     }
 
     public Integer getId() {
@@ -57,5 +67,27 @@ public class Task {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public String getTerm() {
+        if(term == null){
+            return "none";
+        }
+        else return term;
+    }
+
+    public void setTerm(String term) {
+        this.term = term;
+    }
+
+    public String getExecutor() {
+        if(executor==null){
+            return "none";
+        }
+        else return executor;
+    }
+
+    public void setExecutor(String executor) {
+        this.executor = executor;
     }
 }

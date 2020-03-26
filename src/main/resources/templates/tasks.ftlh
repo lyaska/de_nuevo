@@ -22,6 +22,12 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="subject" placeholder="Предмет">
                 </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="executor" placeholder="Исполнитель">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="term" placeholder="Срок выполнения">
+                </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}" />
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Создать</button>
@@ -34,11 +40,15 @@
         <#list tasks as task>
             <div class="card my-3">
                 <div class="m-2">
-                    <span>${task.text}</span>
-                    <i>${task.subject}</i>
+                    <i>Педмет поручения: ${task.subject}</i>
+                    <p><span>${task.text}</span></p>
+                    <p>Срок исполнения: ${task.term}</p>
                 </div>
                 <div class="card-footer text-muted">
-                    ${task.authorName}
+                    Автор: ${task.authorName}
+                </div>
+                <div class="card-footer text-muted">
+                    Исполнитель: ${task.executor}
                 </div>
             </div>
         <#else>
