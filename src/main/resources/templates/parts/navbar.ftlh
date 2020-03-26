@@ -15,6 +15,15 @@
                 <a class="nav-link" href="/tasks">Поручения</a>
             </li>
             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/tasks" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/tasks">Все поручения</a>
+                    <a class="dropdown-item" href="/user-tasks/${currentUserId}">Мои поручения</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/organisation" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Справочник организации
                 </a>
