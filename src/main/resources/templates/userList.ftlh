@@ -11,7 +11,7 @@
             <th>Фамилия</th>
             <th>Отчество</th>
             <th>Должность</th>
-            <th>Право доступа</th>
+
             <th></th>
         </tr>
         </thead>
@@ -23,9 +23,8 @@
                 <td>${user.secondName}</td>
                 <td>${user.patronymic}</td>
                 <td>${user.position}</td>
-                <td><#list user.roles as role>${role}<#sep>, </#list></td>
-                <td><a href="/user/${user.id}">edit</a></td>
-                <td><a href="/userDelete/${user.id}">delete</a></td>
+                <td><a href="/user/${user.id}">Редактировать</a></td>
+                <td><a href="/userDelete/${user.id}">Удалить</a></td>
             </tr>
         </#list>
         </tbody>

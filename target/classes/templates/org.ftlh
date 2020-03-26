@@ -2,6 +2,6 @@
 
 <@c.page>
 
-    <div><span><a href="/main">На главную</a></span></div>
+    Раздел не закончен
 
 </@c.page>

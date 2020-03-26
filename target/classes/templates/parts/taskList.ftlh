@@ -10,8 +10,8 @@
             <div class="card-footer text-muted">
                 Автор: <a href ="/user-tasks/${task.author.id}">${task.authorName}</a>
                 <#if task.author.id == currentUserId>
-                <a class="btn btn-primary" href="/user-tasks/${task.author.id}?task=${task.id}">Редактировать
-                    </a></#if>
+                <p><a href="/user-tasks/${task.author.id}?task=${task.id}">Редактировать
+                    </a></p></#if>
             </div>
             <div class="card-footer text-muted">
                 Исполнитель: ${task.executor}
