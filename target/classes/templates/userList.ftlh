@@ -24,7 +24,7 @@
                 <td>${user.patronymic}</td>
                 <td>${user.position}</td>
                 <td><a href="/user/${user.id}">Редактировать</a></td>
-                <td><a href="/userDelete/${user.id}">Удалить</a></td>
+                
             </tr>
         </#list>
         </tbody>
